@@ -1,0 +1,15 @@
+body > h1 {
+  text-align: center;
+}
+
+#btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
