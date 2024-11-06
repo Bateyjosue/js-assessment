@@ -1,7 +1,14 @@
-const body = document.body
-const btn = body.querySelector('#btn')
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementByUD("btn");
 
-btn.addEventListener('click', () => {
-  body.style.backgroundColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`
-  
-})
+  btn,
+    btn.addEventListener("click", () => {
+      document.body.style.backgroundColor = `
+    rgb(
+      ${Math.random() * 256},
+      ${Math.random() * 256},
+      ${Math.random() * 256}
+    )
+    `;
+    });
+});
