@@ -8,8 +8,9 @@ body > h1 {
   justify-content: center;
 }
 
-#rock, #paper, #scissor {
-  
+#rock,
+#paper,
+#scissor {
   cursor: pointer;
   height: 3rem;
   width: 3rem;
@@ -17,8 +18,14 @@ body > h1 {
   font-size: 1.3rem;
 }
 
-#rock:hover, #paper:hover, #scissor:hover {
-  
+#rock:hover,
+#paper:hover,
+#scissor:hover {
   background: cyan;
   border-color: transparent;
+}
+
+#result {
+  text-align: center;
+  margin-top: 2rem;
 }

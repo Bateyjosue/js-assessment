@@ -1,36 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
   const actions = document.getElementById("actions");
-
-  const buttons = actions.getElementsByTagName("button");
   const result = document.getElementById("result");
-  const arr = Array.from(buttons)
-    
-  arr.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      console.log(e.target.id);
-      const mine = e.target.id;
-      const machine = arr[Math.floor(Math.random() * arr.length)].id;
-      result.innerHTML = rockPaperScissor(mine, machine);
+
+  if (actions && result) {
+    const buttons = Array.from(actions.getElementsByTagName("button"));
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", handleButtonClick);
     });
-  });
+  }
 });
+
+function handleButtonClick(event) {
+  const playerChoice = event.target.id;
+  const machineChoice = getRandomChoice();
+  document.getElementById("result").innerText = determineOutcome(playerChoice, machineChoice);
+}
+
+function getRandomChoice() {
+  const choices = ["rock", "paper", "scissor"];
+  return choices[Math.floor(Math.random() * choices.length)];
+}
 
 /**
  * Determines the outcome of a Rock-Paper-Scissors game.
  *
- * @param {string} mine - The player's choice, which can be "rock", "paper", or "scissor".
- * @param {string} machine - The machine's choice, which can be "rock", "paper", or "scissor".
+ * @param {string} playerChoice - The player's choice: "rock", "paper", or "scissor".
+ * @param {string} machineChoice - The machine's choice: "rock", "paper", or "scissor".
  * @returns {string} - The result of the game: "Win", "Lose", "Tie", or "Wrong Input" if an invalid choice is provided.
  */
-const rockPaperScissor = (mine, machine) => {
-  switch (mine) {
+function determineOutcome(playerChoice, machineChoice) {
+  switch (playerChoice) {
     case "rock":
-      return machine === "rock" ? "Tie" : machine === "paper" ? "Lose" : "Win";
+      return machineChoice === "rock" ? "Tie" : machineChoice === "paper" ? "Lose" : "Win";
     case "paper":
-      return machine === "rock" ? "Win" : machine === "paper" ? "Tie" : "Lose";
+      return machineChoice === "rock" ? "Win" : machineChoice === "paper" ? "Tie" : "Lose";
     case "scissor":
-      return machine === "rock" ? "Lose" : machine === "paper" ? "Win" : "Tie";
+      return machineChoice === "rock" ? "Lose" : machineChoice === "paper" ? "Win" : "Tie";
     default:
       return "Wrong Input";
   }
-};
+}
+
