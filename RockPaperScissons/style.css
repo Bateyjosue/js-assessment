@@ -1,0 +1,24 @@
+body > h1 {
+  text-align: center;
+}
+
+#actions {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+#rock, #paper, #scissor {
+  
+  cursor: pointer;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  font-size: 1.3rem;
+}
+
+#rock:hover, #paper:hover, #scissor:hover {
+  
+  background: cyan;
+  border-color: transparent;
+}
